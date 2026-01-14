@@ -1,0 +1,49 @@
+﻿@model List<Reference>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="max-w-full p-6">
+    <div class="bg-white rounded-2xl border p-6 shadow-sm" style="margin-left: 18rem;">
+
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-bold">References</h2>
+            <a href="/Reference/AddReference" class="bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all">
+                + Add Reference
+            </a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b text-gray-500 uppercase text-xs">
+                        <th class="py-3 text-left">Name</th>
+                        <th class="py-3 text-left">Email</th>
+                        <th class="py-3 text-left">Phone</th>
+                        <th class="py-3 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y">
+                    @foreach (var item in Model)
+                    {
+                        <tr class="hover:bg-pink-50 transition">
+                            <td class="py-4 font-semibold text-gray-800">@item.ReferenceName</td>
+                            <td class="py-4 text-gray-600">@item.Mail</td>
+                            <td class="py-4 text-gray-500">@item.Phone</td>
+                            <td class="py-4 text-right">
+                                <div class="flex justify-end items-center gap-3">
+                                    <a href="/Reference/UpdateReference/@item.Id" class="flex items-center gap-1 text-blue-500 hover:text-blue-700 font-bold text-xs uppercase transition-colors">
+                                        <span class="material-symbols-outlined text-sm">edit</span> Edit
+                                    </a>
+                                    <a href="/Reference/DeleteReference/@item.Id" onclick="return confirm('@item.ReferenceName silinsin mi?')" class="flex items-center gap-1 text-red-400 hover:text-red-600 font-bold text-xs uppercase transition-colors">
+                                        <span class="material-symbols-outlined text-sm">delete</span> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

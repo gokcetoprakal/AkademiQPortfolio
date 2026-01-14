@@ -1,0 +1,62 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "Edit Project";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="ml-72 max-w-3xl p-8 space-y-6 bg-white rounded-2xl border shadow-sm my-10">
+
+    <h2 class="text-2xl font-bold text-gray-800 border-b pb-4">Edit Project</h2>
+
+    <form asp-action="Edit" method="post" class="space-y-4">
+
+        <div class="space-y-1">
+            <label class="text-sm font-bold text-indigo-600">Project ID</label>
+            <input asp-for="ProjectId"
+                   type="number"
+                   min="1"
+                   oninput="if(this.value < 1) this.value = 1;"
+                   class="w-full px-4 py-3 border-2 border-indigo-100 bg-indigo-50/30 rounded-xl font-mono text-lg focus:border-indigo-500 outline-none transition-all"
+                   placeholder="Enter ID" />
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-sm font-semibold text-gray-600">Project Title</label>
+            <input asp-for="Title"
+                   placeholder="Title"
+                   class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary/20 outline-none" />
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-sm font-semibold text-gray-600">Description</label>
+            <textarea asp-for="Description"
+                      placeholder="Description"
+                      rows="4"
+                      class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"></textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1">
+                <label class="text-sm font-semibold text-gray-600">Category</label>
+                <input asp-for="Category"
+                       class="w-full px-4 py-3 border rounded-xl" />
+            </div>
+            <div class="space-y-1">
+                <label class="text-sm font-semibold text-gray-600">Publish Date</label>
+                <input asp-for="PublishDate"
+                       type="date"
+                       class="w-full px-4 py-3 border rounded-xl" />
+            </div>
+        </div>
+
+        <div class="pt-4 flex gap-3">
+            <button type="submit" class="px-6 py-3 bg-primary text-white rounded-xl font-bold hover:shadow-lg transition-all">
+                Update Project
+            </button>
+            <a asp-action="Index" class="px-6 py-3 bg-gray-100 text-gray-600 rounded-xl font-bold">
+                Cancel
+            </a>
+        </div>
+
+    </form>
+</section>

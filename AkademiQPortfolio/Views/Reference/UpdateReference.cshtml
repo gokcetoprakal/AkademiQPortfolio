@@ -1,0 +1,33 @@
+﻿@model Reference
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="max-w-full p-6">
+    <div class="bg-white rounded-2xl border p-8 shadow-sm max-w-2xl" style="margin-left: 18rem;">
+        <h2 class="text-xl font-bold mb-6 text-blue-600">Update Reference</h2>
+        <form method="post" class="space-y-4">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+                <input type="text" asp-for="ReferenceName" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-100 border-gray-200" />
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Email</label>
+                <input type="email" asp-for="Mail" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-100 border-gray-200" />
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Phone</label>
+                <input type="text" asp-for="Phone" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-100 border-gray-200" />
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Description / Position</label>
+                <textarea asp-for="Description" rows="3" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-100 border-gray-200 resize-none"></textarea>
+            </div>
+            <div class="pt-4 flex gap-4">
+                <button type="submit" class="bg-blue-600 text-white px-8 py-2.5 rounded-xl font-bold hover:bg-blue-700 transition-all">Update Reference</button>
+                <a href="/Reference/Index" class="flex items-center text-gray-400 font-bold text-sm">Back</a>
+            </div>
+        </form>
+    </div>
+</div>

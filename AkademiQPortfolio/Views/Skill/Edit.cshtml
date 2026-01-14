@@ -1,0 +1,59 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "Edit Skill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="ml-72 p-8 bg-[#fffcfc] min-h-screen">
+    <div class="max-w-2xl mx-auto">
+        <a asp-action="Index" class="flex items-center text-pink-400 hover:text-pink-600 mb-6 transition-all text-sm font-semibold">
+            <span class="material-symbols-outlined text-base mr-1">close</span>
+            Cancel Editing
+        </a>
+
+        <div class="bg-white rounded-3xl shadow-sm border border-pink-50 p-8">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Edit Skill</h2>
+                    <p class="text-gray-400 text-sm">Update the proficiency or name of your skill.</p>
+                </div>
+                @if (Model != null && Model.SkillId > 0)
+                {
+                    <span class="bg-pink-50 text-pink-500 px-3 py-1 rounded-lg font-mono text-xs font-bold border border-pink-100">
+                        ID: #@Model.SkillId
+                    </span>
+                }
+            </div>
+
+            <form asp-action="Edit" method="post" class="space-y-6">
+                <input type="hidden" asp-for="SkillId" />
+
+                <div class="space-y-2">
+                    <label class="text-sm font-bold text-gray-700 ml-1">Skill Name</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-4 top-3.5 text-pink-300">edit_note</span>
+                        <input asp-for="SkillTitle" type="text"
+                               class="w-full pl-12 pr-4 py-3.5 bg-pink-50/30 border border-pink-100 rounded-2xl focus:ring-2 focus:ring-pink-200 focus:border-pink-400 outline-none transition-all" required />
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center ml-1">
+                        <label class="text-sm font-bold text-gray-700">Proficiency Level (%)</label>
+                        <span id="rangeValueEdit" class="text-pink-500 font-bold text-sm">@Model.SkillValue%</span>
+                    </div>
+                    <input asp-for="SkillValue" type="range" min="0" max="100"
+                           class="w-full h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer accent-pink-500"
+                           oninput="document.getElementById('rangeValueEdit').innerText = this.value + '%'" />
+                </div>
+
+                <div class="pt-4 flex gap-3">
+                    <button type="submit" class="flex-1 bg-pink-500 text-white py-4 rounded-2xl font-bold hover:bg-pink-600 hover:shadow-lg hover:shadow-pink-200 transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">update</span>
+                        Update Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

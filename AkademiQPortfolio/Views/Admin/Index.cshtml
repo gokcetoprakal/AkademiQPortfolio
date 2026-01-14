@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .active-nav-item {
+        background-color: rgba(239, 57, 102, 0.1);
+        border-right: 4px solid #ef3966;
+    }
+
+    .ml-72 flex-1 flex flex-col
+    {
+        margin-left: 0px; /* sidebar kadar boşluk bırak */
+        width: calc(100%); /* kalan alanı kapla */
+        padding: 20px;
+    }
+</style>
+
+<!-- Main Content Area -->
+<main class="ml-72 flex-1 flex flex-col">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-8 h-20 bg-white/80 dark:bg-[#2d181e]/80 backdrop-blur-md sticky top-0 z-40 border-b border-[#e7cfd5] dark:border-[#3d252b]">
+        <div class="flex items-center gap-6">
+            <h2 class="text-xl font-bold tracking-tight">Hoşgeldin, Gökçe</h2>
+            <div class="relative group">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#9a4c5f]">search</span>
+                <input class="bg-[#f3e7ea] dark:bg-[#3d252b] border-none focus:ring-1 focus:ring-primary rounded-xl pl-10 pr-4 py-2 text-sm w-64 placeholder:text-[#9a4c5f]/60 outline-none" placeholder="Search resources..." type="text" />
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <button class="size-10 flex items-center justify-center rounded-xl bg-[#f3e7ea] dark:bg-[#3d252b] text-[#1b0d11] dark:text-[#fcf8f9] hover:bg-primary hover:text-white transition-all relative">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-2 right-2 size-2 bg-primary border-2 border-white rounded-full"></span>
+            </button>
+            <button class="size-10 flex items-center justify-center rounded-xl bg-[#f3e7ea] dark:bg-[#3d252b] text-[#1b0d11] dark:text-[#fcf8f9] hover:bg-primary hover:text-white transition-all">
+                <span class="material-symbols-outlined">settings</span>
+            </button>
+            <div class="h-8 w-px bg-[#e7cfd5] dark:bg-[#3d252b] mx-2"></div>
+            <div class="bg-primary/10 px-3 py-1 rounded-lg">
+                <p class="text-[10px] font-bold text-primary uppercase tracking-tighter">Pro Plan</p>
+            </div>
+        </div>
+    </header>
+    <!-- Page Content -->
+    <div class="p-8 space-y-8">
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white dark:bg-[#2d181e] p-6 rounded-2xl border border-[#e7cfd5] dark:border-[#3d252b] shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-500">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-green-100 text-green-600">+12.5%</span>
+                </div>
+                <p class="text-sm font-medium text-[#9a4c5f] dark:text-[#c4a1aa]">Proje Sayısı</p>
+                <h3 class="text-3xl font-extrabold mt-1">@ViewBag.TotalProjects</h3>
+            </div>
+            <div class="bg-white dark:bg-[#2d181e] p-6 rounded-2xl border border-[#e7cfd5] dark:border-[#3d252b] shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 rounded-xl bg-orange-50 dark:bg-orange-900/20 text-orange-500">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-green-100 text-green-600">+2 New</span>
+                </div>
+                <p class="text-sm font-medium text-[#9a4c5f] dark:text-[#c4a1aa]">Yetenek Sayısı</p>
+                <h3 class="text-3xl font-extrabold mt-1">@ViewBag.TotalSkills</h3>
+            </div>
+            <div class="bg-white dark:bg-[#2d181e] p-6 rounded-2xl border border-primary/20 dark:border-primary/40 shadow-sm hover:shadow-md transition-shadow ring-2 ring-primary/5">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 rounded-xl bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">mark_email_unread</span>
+                    </div>
+                </div>
+                <p class="text-sm font-medium text-[#9a4c5f] dark:text-[#c4a1aa]">Okunmamış Mesajlar</p>
+                <h3 class="text-3xl font-extrabold mt-1">@ViewBag.UnreadMessages</h3>
+            </div>
+            <div class="bg-white dark:bg-[#2d181e] p-6 rounded-2xl border border-[#e7cfd5] dark:border-[#3d252b] shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 rounded-xl bg-purple-50 dark:bg-purple-900/20 text-purple-500">
+                        <span class="material-symbols-outlined">history_edu</span>
+                    </div>
+                    <span class="text-[10px] font-bold px-2 py-1 rounded-full bg-[#f3e7ea] text-[#1b0d11]">Updated</span>
+                </div>
+                <p class="text-sm font-medium text-[#9a4c5f] dark:text-[#c4a1aa]">Toplam Tecrübe</p>
+                <h3 class="text-3xl font-extrabold mt-1">@ViewBag.TotalExperiences</h3>
+            </div>
+        </div>
+        <!-- Recent Messages Section -->
+        <div class="bg-white dark:bg-[#2d181e] rounded-2xl border border-[#e7cfd5] dark:border-[#3d252b] overflow-hidden">
+            <div class="p-6 border-b border-[#e7cfd5] dark:border-[#3d252b] flex items-center justify-between">
+                <div>
+                    <h2 class="text-lg font-bold">Recent Messages</h2>
+                    <p class="text-sm text-[#9a4c5f]">Direct inquiries from your portfolio visitors</p>
+                </div>
+                <button class="text-sm font-bold text-primary hover:underline">View All Messages</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-background-light dark:bg-[#3d252b] border-b border-[#e7cfd5] dark:border-[#4d353b]">
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#9a4c5f]">Gönderen</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#9a4c5f]">Konu</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#9a4c5f]">Tarih</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#9a4c5f]">Okundu mu?</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#e7cfd5] dark:divide-[#3d252b]">
+                        @foreach (var message in ViewBag.RecentMessages)
+                        {
+                            <tr class="hover:bg-primary/5 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">
+                                            @message.SenderName.Substring(0, 2).ToUpper()
+                                        </div>
+                                        <span class="text-sm font-semibold">@message.SenderName</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm">@message.MessageSubject</td>
+                                <td class="px-6 py-4 text-sm text-[#9a4c5f]">@message.SendDate.ToString("MMM dd, hh:mm tt")</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary">@(message.IsRead ? "✔️" : "❌")</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="p-2 hover:bg-[#f3e7ea] dark:hover:bg-[#3d252b] rounded-lg transition-colors">
+                                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>

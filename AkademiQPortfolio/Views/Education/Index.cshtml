@@ -1,0 +1,93 @@
+﻿@model List<Education>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="max-w-full p-6">
+    <div class="bg-white rounded-2xl border p-6 shadow-sm">
+
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-lg font-bold">Education</h2>
+            <a href="/Education/AddEducation/" class="bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all">
+                + Add Education
+            </a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b text-gray-500 uppercase text-xs">
+                        <th class="py-3 text-left">Degree / Certificate</th>
+                        <th class="py-3 text-left">Department</th>
+                        <th class="py-3 text-left">Period</th>
+                        <th class="py-3 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y">
+                    @foreach (var item in Model)
+                    {
+                        <tr class="hover:bg-pink-50 transition">
+                            <td class="py-4 font-semibold">@item.Title</td>
+                            <td class="py-4 text-gray-600">@item.Department</td>
+                            <td class="py-4 text-gray-500">@item.EducationDate</td>
+                            <td class="py-4 text-right">
+                                <div class="flex justify-end items-center gap-3">
+                                    @* Update Butonu *@
+                                    <a href="/Education/UpdateEducation/@item.EducationId"
+                                       class="flex items-center gap-1 text-blue-500 hover:text-blue-700 font-bold text-xs uppercase transition-colors">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                        Edit
+                                    </a>
+
+                                    @* Delete Butonu *@
+                                    <button onclick="deleteEducation('@item.EducationId', '@item.Title')"
+                                            class="flex items-center gap-1 text-red-400 hover:text-red-600 font-bold text-xs uppercase transition-colors">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                        Delete
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-50 text-xs text-gray-400">
+            Showing @Model.Count records
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Sidebar genişliği kadar margin bırakıyoruz */
+    .max-w-full {
+        margin-left: 18rem !important; /* ml-72 ye denk gelir */
+    }
+
+    /* Tablo satırına hover olunca butonların daha net görünmesi için */
+    tr:hover td {
+        color: #000;
+    }
+</style>
+<script>
+    function deleteEducation(id, title) {
+        if (confirm(title + " kaydını silmek istediğinize emin misiniz?")) {
+            // Fetch ile arka plana istek atıyoruz
+            fetch('/Education/DeleteEducation/' + id, {
+                method: 'POST' // Güvenlik için POST kullanmak daha iyidir
+            }).then(response => {
+                if (response.ok) {
+                    // Sayfayı yenilemek en garanti yoldur
+                    location.reload();
+                } else {
+                    alert("Silme işlemi sırasında bir hata oluştu.");
+                }
+            }).catch(error => {
+                console.error('Hata:', error);
+                alert("Sunucuya ulaşılamadı.");
+            });
+        }
+    }
+</script>

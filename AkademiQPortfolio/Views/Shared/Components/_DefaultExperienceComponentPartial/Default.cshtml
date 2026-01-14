@@ -1,0 +1,149 @@
+﻿@model List<Experience>
+
+<section id="section4" class="experience-section">
+    <div class="experience-container">
+
+        <div class="experience-header">
+            <span>Deneyim Sayısı: 3</span>
+            <h2>DENEYİMLERİM</h2>
+        </div>
+
+        <div class="experience-timeline">
+
+            @foreach (var item in Model)
+            {
+                <div class="experience-card">
+
+                    <div class="experience-left">
+                        <span class="experience-year">@item.WorkDate</span>
+                        <span class="experience-company">@item.CompanyName</span>
+                    </div>
+                    <div class="experience-dot"></div>
+
+                    <div class="experience-content">
+                        <h4>@item.Title</h4>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<style>
+    /* ===== Experience Section ===== */
+    .experience-section {
+        width: 100vw;
+        height: 100vh;
+        background: #fdfbf8;
+        display: flex;
+        align-items: center;
+        overflow-y: auto;
+        font-family: "Inter", sans-serif;
+    }
+
+    .experience-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 70px 20px;
+    }
+
+    /* Header */
+    .experience-header span {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #d88ea1;
+    }
+
+    .experience-header h2 {
+        font-size: 38px;
+        font-weight: 800;
+        color: #1f2937;
+        margin-top: 10px;
+        margin-bottom: 60px;
+    }
+
+    /* Timeline */
+    .experience-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        position: relative;
+    }
+
+        /* Vertical line */
+        .experience-timeline::before {
+            content: "";
+            position: absolute;
+            left: 180px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #f1cbd5;
+        }
+
+    /* Card */
+    .experience-card {
+        display: grid;
+        grid-template-columns: 160px 40px 1fr;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    /* Left meta */
+    .experience-left {
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    .experience-year {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: #d88ea1;
+    }
+
+    .experience-company {
+        font-size: 13px;
+        color: #6b7280;
+    }
+
+    /* Dot */
+    .experience-dot {
+        width: 14px;
+        height: 14px;
+        background: #d88ea1;
+        border-radius: 50%;
+        margin-top: 6px;
+        box-shadow: 0 0 0 6px #f6dbe2;
+    }
+
+    /* Content */
+    .experience-content {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 24px 28px;
+        box-shadow: 0 20px 40px rgba(216, 142, 161, 0.15);
+    }
+
+        .experience-content h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .experience-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+    img[max-width="900"] ~ .experience-section .experience-card {
+        grid-template-columns: 1fr;
+    }
+
+    img[max-width="900"] ~ .experience-section .experience-timeline::before {
+        left: 0;
+    }
+</style>

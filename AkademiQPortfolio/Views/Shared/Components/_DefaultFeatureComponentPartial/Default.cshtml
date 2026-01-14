@@ -1,0 +1,153 @@
+﻿<section id="section1" class="hero-section active">
+	<div class="container">
+		<div class="row hero-row">
+
+			<!-- TEXT -->
+			<div class="col-sm-7 hero-text">
+				<h1>
+					Front-End<sup>+</sup>
+					Back-End<sup>+</sup>
+					Programlama<sup>+</sup>
+					Web Geliştirme<sup>+</sup>
+				</h1>
+
+				<p class="hero-desc">
+					Merhaba, ben <strong>Gökçe Toprakal</strong>. Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim.
+					Full Stack web developer olma yolunda kendimi geliştiriyorum.
+					Ağırlıklı olarak backend tarafında çalışsam da front-end ve tasarım alanlarında da ilerliyorum.
+				</p>
+
+				<div class="button-row">
+					<a href="#" class="hero-btn primary">Bana Ulaşın</a>
+					<a href="/gokcetoprakalcv.png" download="Gokce_Toprakal_CV" class="hero-btn secondary">
+						CV'mi İndirin
+					</a>
+				</div>
+			</div>
+
+			<!-- IMAGE -->
+			<div class="col-sm-5 hero-image">
+				<div class="image-card">
+					<img src="/sility/Pics/benniko.jpeg" alt="Gökçe Toprakal">
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<style>
+	/* ===== HERO SECTION ===== */
+	.hero-section {
+		min-height: 100vh;
+		background: linear-gradient(135deg, #fdfbf8, #f8e7ec);
+		display: flex;
+		align-items: center;
+		font-family: "Inter", sans-serif;
+	}
+
+	/* Row */
+	.hero-row {
+		display: flex;
+		align-items: center;
+	}
+
+	/* TEXT */
+	.hero-text h1 {
+		font-size: 40px;
+		font-weight: 900;
+		color: #1f2937;
+		margin-bottom: 24px;
+	}
+
+		.hero-text h1 sup {
+			color: #d88ea1;
+			font-size: 22px;
+		}
+
+	.hero-desc {
+		font-size: 16px;
+		line-height: 1.8;
+		color: #4b5563;
+		max-width: 520px;
+		margin-bottom: 36px;
+	}
+
+	/* Buttons */
+	.button-row {
+		display: flex;
+		gap: 16px;
+	}
+
+	.hero-btn {
+		padding: 12px 28px;
+		border-radius: 999px;
+		font-size: 14px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all .3s ease;
+	}
+
+		.hero-btn.primary {
+			background: #d88ea1;
+			color: #fff;
+			box-shadow: 0 12px 30px rgba(216,142,161,.35);
+		}
+
+			.hero-btn.primary:hover {
+				transform: translateY(-3px);
+				background: #c7778c;
+			}
+
+		.hero-btn.secondary {
+			background: #fff;
+			color: #d88ea1;
+			border: 1px solid #f1cbd5;
+		}
+
+			.hero-btn.secondary:hover {
+				background: #d88ea1;
+				color: #fff;
+				transform: translateY(-3px);
+			}
+
+	/* IMAGE */
+	.hero-image {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.image-card {
+		width: 340px;
+		border-radius: 26px;
+		overflow: hidden;
+		box-shadow: 0 30px 60px rgba(0,0,0,.15);
+	}
+
+		.image-card img {
+			width: 100%;
+			display: block;
+			object-fit: cover;
+		}
+
+	/* Mobile */
+	image (max-width: 768px) {
+		.hero-row
+
+	{
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.hero-image {
+		justify-content: center;
+		margin-top: 40px;
+	}
+
+	.hero-desc {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	}
+</style>

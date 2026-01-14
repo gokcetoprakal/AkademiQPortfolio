@@ -1,0 +1,131 @@
+﻿<header class="header">
+	<div class="top clearfix">
+		<a href="#section8" class="available"><i class="ion-ios-email-outline"></i><span>AkademiQ.AI</span></a>
+		<div class="right-icons">
+			<a href="" class="open-search header-open-search"><i class="md md-search"></i></a>
+			<a href="" class="download"><i class="md md-file-download"></i></a>
+			<a href="" class="share"><i class="md md-more-vert"></i></a>
+		</div> <!-- end .right-icons -->
+		<!-- Popup -->
+		<div class="popup">
+			<nav class="social-nav">
+				<ul class="list-unstyled">
+					<li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=gkctprkl05@gmail.com">Gmail</a></li>
+					<li><a href="https://www.linkedin.com/in/g%C3%B6k%C3%A7e-toprakal-34a919330/">Linkedin</a></li>
+					<li><a href="https://github.com/gokcetoprakal">Github</a></li>
+				</ul> <!-- end .list-unstyled -->
+			</nav> <!-- end .social-nav -->
+		</div> <!-- end .popup -->
+	</div> <!-- end .top -->
+	<div class="bottom clearfix">
+		<div class="title"><a href="https://localhost:7226/Admin/Index">Gökçe Toprakal</a></div>
+		<div class="header-action-button-wrapper">
+			<a href="" class="header-action-button action-button"><i class="md md-add"></i></a>
+		</div> <!-- end .header-action-button-wrapper -->
+		<a href="" class="responsive-menu-open">Menu <i class="fa fa-bars"></i></a>
+		<nav class="main-nav">
+			<ul class="list-unstyled">
+				<li class="active"><a href="#section1">Anasayfa</a></li>
+				<li><a href="#section2">Hakkımda</a></li>
+				<li><a href="#section3">Yetenekler</a></li>
+				<li><a href="#section4">Deneyim</a></li>
+				<li><a href="#section5">Eğitim</a></li>
+				<li><a href="#section6">İş</a></li>
+				<li><a href="#section8">İletişim</a></li>
+			</ul>
+		</nav> <!-- end .main-nav -->
+	</div> <!-- end .bottom -->
+</header>
+<div class="responsive-menu">
+	<a href="" class="responsive-menu-close">Close <i class="ion-android-close"></i></a>
+	<nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+</div> <!-- end .responsive-menu -->
+<!-- Section Navigation -->
+<div class="section-nav">
+	<nav class="section1">
+		<a href="#section2" class="forward"><i class="md md-chevron-right"></i></a>
+		<a href="#section1" class="backward"><i class="md md-chevron-left"></i></a>
+	</nav>
+</div> <!-- end .section-nav -->
+<style>
+	/* --- Header ve Navigasyon Renk Güncellemeleri --- */
+
+	:root {
+		--accent-color: #d88ea1;
+		--dark-text: #333;
+		--white: #ffffff;
+	}
+
+	.header .top {
+		background-color: #d88ea1 !important; /* Ekran görüntüsündeki mavi/mor ton */
+	}
+	/* AkademiQ.AI Butonu / Available Alanı */
+	.available {
+		background-color: var(--accent-color) !important;
+		color: var(--white) !important;
+		padding: 5px 15px;
+		border-radius: 4px;
+		text-decoration: none;
+		transition: opacity 0.3s;
+	}
+
+		.available:hover {
+			opacity: 0.9;
+		}
+
+	/* Ana Navigasyon (Main Nav) Aktif Link Altı */
+	.main-nav ul li.active a {
+		color: var(--accent-color) !important;
+	}
+
+	.main-nav ul li a:hover {
+		color: var(--accent-color) !important;
+	}
+
+	/* Orta Yuvarlak Aksiyon Butonu (+) */
+	.header-action-button {
+		background-color: var(--accent-color) !important;
+		color: var(--white) !important;
+		box-shadow: 0 4px 10px rgba(216, 142, 161, 0.4); /* Butonun gölgesine yumuşak bir pembe tonu */
+	}
+
+	/* Yan Menü (Responsive Menu) Kapatma Butonu */
+	.responsive-menu-close {
+		background-color: var(--accent-color);
+		color: var(--white);
+	}
+
+	/* Bölüm Navigasyonu (Oklar) */
+	.section-nav a {
+		background-color: var(--accent-color);
+		color: var(--white);
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		border-radius: 50%;
+	}
+
+		.section-nav a:hover {
+			background-color: #c47b8d; /* Hover için bir ton koyusu */
+		}
+
+	/* Mobil Menü Butonu (Menu fa-bars) */
+	.responsive-menu-open {
+		color: var(--accent-color);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	/* Header Alt Çizgi veya Vurgu (Opsiyonel) */
+	.header .bottom {
+		border-bottom: 2px solid #f9f9f9;
+	}
+
+	.title {
+		color: #d88ea1;
+		font-weight: 700;
+		text-decoration: none;
+	}
+</style>

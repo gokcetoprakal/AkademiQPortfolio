@@ -1,0 +1,244 @@
+﻿<div class="search-overlay"></div>
+<div class="search">
+	<a href="" class="search-close"><i class="md md-close"></i></a>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4>Aranacak Kelimeleri Giriniz</h4>
+			<form class="search-form">
+				<input type="text" id="search" name="search" class="text-center" />
+			</form> <!-- end .search-form -->
+		</div> <!-- end .col-sm-6 -->
+	</div> <!-- end .row -->
+</div> <!-- end .row -->
+<!-- Slide Out -->
+<div class="slide-out-overlay"></div>
+<div class="slide-out">
+
+	<header class="slide-out-header clearfix">
+		<div class="clearfix">
+			<a href="" class="slide-out-close pull-left"><i class="md md-close"></i></a>
+			<a href="" class="open-search pull-right"><i class="md md-search"></i></a>
+			<a href="" class="slide-out-share pull-right"><i class="md md-more-vert"></i></a>
+		</div> <!-- end .clearfix -->
+		<!-- Popup -->
+		<div class="slide-out-popup">
+			<nav class="social-nav">
+				<ul class="list-unstyled">
+					<li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=gkctprkl05@gmail.com">Gmail</a></li>
+					<li><a href="https://www.linkedin.com/in/g%C3%B6k%C3%A7e-toprakal-34a919330/">Linkedin</a></li>
+					<li><a href="https://github.com/gokcetoprakal">Github</a></li>
+				</ul> <!-- end .list-unstyled -->
+			</nav> <!-- end .social-nav -->
+		</div> <!-- end .slide-out-popup -->
+		<div class="image"><img src="/sility/Pics/benniko.jpeg" alt="alt text" class="img-responsive"></div>
+		<div class="content">
+			<h5>Gökçe Toprakal</h5>
+			<span>Full Stack Web Developer</span>
+		</div> <!-- end .content -->
+		<div class="text-right">
+			<a href="" class="button link-button white icon-left"><i class="md md-file-download"></i>Cv'mi İndir</a>
+		</div> <!-- end .text-right -->
+	</header>
+
+	<!-- end .slide-out-header -->
+	<div class="slide-out-widgets">
+		<div class="slide-out-widget">
+			<h4>Benimle İletişime Geçin</h4>
+			<form action="scripts/contact.php" method="post" class="form-horizontal contact-form">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">İsminiz:</label>
+					<div class="col-sm-9">
+						<input type="text" class="contact-name" name="contact-name" />
+					</div> <!-- end .col-sm-9 -->
+				</div> <!-- end .form-group -->
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Email Adresiniz:</label>
+					<div class="col-sm-9">
+						<input type="email" class="contact-email" name="contact-email" />
+					</div> <!-- end .col-sm-9 -->
+				</div> <!-- end .form-group -->
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Mesajınız:</label>
+					<div class="col-sm-9">
+						<textarea name="contact-message" class="contact-message" rows="3"></textarea>
+					</div> <!-- end .col-sm-9 -->
+					<label class="col-sm-3 control-label">Konu:</label>
+					<div class="col-sm-9">
+						<select name="contact-subject" class="contact-subject">
+							<option value="" disabled selected>Konu seçiniz</option>
+							<option value="genel">Proje Teklifi</option>
+							<option value="destek">Geliştirme Talebi</option>
+							<option value="teklif">Eğitim Talebi</option>
+							<option value="danışma">Danışmanlık</option>
+							<option value="diger">Diğer</option>
+						</select>
+					</div>
+				</div> <!-- end .form-group -->
+				<div class="form-group">
+					<div class="col-sm-9 col-sm-offset-3">
+						<button type="submit" class="button solid-button purple">Mesajı gönder</button>
+					</div> <!-- end .col-sm-9 -->
+				</div> <!-- end .form-group -->
+				<div class="contact-loading alert alert-info form-alert">
+					<span class="message">Yükleniyor...</span>
+					<button type="button" class="close" data-hide="alert" aria-label="Close"><i class="fa fa-times"></i></button>
+				</div>
+				<div class="contact-success alert alert-success form-alert">
+					<span class="message">Success!</span>
+					<button type="button" class="close" data-hide="alert" aria-label="Close"><i class="fa fa-times"></i></button>
+				</div>
+				<div class="contact-error alert alert-danger form-alert">
+					<span class="message">Error!</span>
+					<button type="button" class="close" data-hide="alert" aria-label="Close"><i class="fa fa-times"></i></button>
+				</div>
+			</form> <!-- end contact-form -->
+		</div> <!-- end .slide-out-widget -->
+		<div class="slide-out-widget">
+		</div> <!-- end .slide-out-widget -->
+	</div> <!-- end .slide-out-widgets -->
+</div> <!-- end .slide-out -->
+<style>
+	/* Genel Ayarlar ve Renk Tanımlamaları */
+	:root {
+		--accent-color: #d88ea1;
+		--dark-gray: #333333;
+		--light-border: #eeeeee;
+	}
+
+	/* Arama Bölümü Tasarımı */
+	.search-overlay {
+		background: #d88ea1;
+	}
+
+	.search h4 {
+		color: var(--dark-gray);
+		font-weight: 300;
+		letter-spacing: 1px;
+	}
+
+	#search {
+		border: none;
+		border-bottom: 3px solid var(--accent-color);
+		font-size: 2.5rem;
+		color: var(--dark-gray);
+		outline: none;
+		padding: 10px 0;
+	}
+
+	/* Yan Menü (Slide-out) Genel Yapı */
+	.slide-out {
+		background-color: #e5b4c1;
+		border-left: 1px solid var(--light-border);
+	}
+
+	.slide-out-header {
+		background-color: #d88ea1;
+		border-bottom: 1px solid var(--light-border);
+		padding: 40px 20px;
+	}
+
+		/* Kullanıcı Bilgileri */
+		.slide-out-header h5 {
+			color: white;
+			font-size: 20px;
+			margin-top: 20px;
+			margin-bottom: 5px;
+		}
+
+		.slide-out-header span {
+			color: white; /* Unvan rengi */
+			font-weight: 600;
+			font-size: 13px;
+			text-transform: uppercase;
+		}
+
+	/* İkonlar ve Kapatma Butonları */
+	.slide-out-close, .search-close, .open-search, .slide-out-share {
+		color: #90324a !important;
+		font-size: 20px;
+	}
+
+		.slide-out-close:hover, .open-search:hover {
+			color: #612232 !important;
+		}
+
+	/* CV İndirme Butonu */
+	.button.link-button.white {
+		background-color: white;
+		color: #90324a;
+		border: none;
+		padding: 8px 20px;
+		border-radius: 2px;
+		font-size: 13px;
+		display: inline-block;
+		margin-top: 15px;
+	}
+
+	/* İletişim Formu Tasarımı */
+	.slide-out-widget h4 {
+		color: var(--dark-gray);
+		border-left: 4px solid var(--accent-color);
+		padding-left: 15px;
+		margin-bottom: 25px;
+		font-size: 16px;
+		text-transform: uppercase;
+	}
+
+	.contact-form label {
+		font-size: 12px;
+		color: #888;
+		font-weight: 600;
+	}
+
+	.contact-form input,
+	.contact-form textarea,
+	.contact-form select {
+		border: 1px solid var(--light-border);
+		background-color: #fafafa;
+		padding: 10px;
+		border-radius: 0; /* Modern köşeli görünüm */
+		width: 100%;
+	}
+
+		.contact-form input:focus,
+		.contact-form textarea:focus,
+		.contact-form select:focus {
+			border-color: var(--accent-color);
+			outline: none;
+			background-color: #ffffff;
+		}
+
+	/* Mesaj Gönder Butonu */
+	.button.solid-button.purple {
+		background-color: var(--dark-gray);
+		color: #ffffff;
+		border: none;
+		padding: 12px 30px;
+		width: 100%;
+		font-weight: bold;
+		letter-spacing: 1px;
+	}
+
+		.button.solid-button.purple:hover {
+			background-color: var(--accent-color); /* Hover durumunda pembe tonu */
+		}
+
+	/* Sosyal Medya Popup */
+	.slide-out-popup {
+		background: #ffffff;
+		border: 1px solid var(--light-border);
+		box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+	}
+
+	.social-nav li a {
+		color: var(--dark-gray);
+		padding: 8px 15px;
+		display: block;
+		text-decoration: none;
+	}
+
+		.social-nav li a:hover {
+			background-color: var(--accent-color);
+			color: #ffffff;
+		}
+</style>

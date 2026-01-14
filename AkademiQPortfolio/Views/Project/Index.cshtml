@@ -1,0 +1,81 @@
+﻿@model List<Project>
+
+@{
+    ViewData["Title"] = "Projects";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="admin-section">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold">Manage Projects</h1>
+            <p class="text-sm text-[#9a4c5f]">Showcase your best work to the world</p>
+        </div>
+        <div class="flex gap-2">
+            <a asp-controller="Project" asp-action="Create"
+               class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90">
+                <span class="material-symbols-outlined text-sm">add</span>
+                Add Project
+            </a>
+
+            <a asp-controller="Project" asp-action="Edit" 
+               class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90">
+                <span class="material-symbols-outlined text-sm">update</span>
+                Update Project
+            </a>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white dark:bg-[#2d181e] rounded-2xl border border-[#e7cfd5] overflow-hidden">
+        <table class="w-full text-left text-sm">
+            <thead>
+                <tr class="bg-background-light border-b border-[#e7cfd5] text-xs uppercase text-[#9a4c5f]">
+                    <th class="px-6 py-4">Project Id</th>
+                    <th class="px-6 py-4">Project Name</th>
+                    <th class="px-6 py-4">Category</th>
+                    <th class="px-6 py-4">Description</th>
+                    <th class="px-6 py-4">Publish Time</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-[#e7cfd5]">
+                @foreach (var item in Model)
+                {
+                    <tr class="hover:bg-primary/5 transition border-b border-gray-100">
+                        <td class="px-6 py-4 font-semibold text-gray-800">@item.ProjectId</td>
+                        <td class="px-6 py-4 font-semibold text-gray-800">@item.Title</td>
+                        <td class="px-6 py-4 text-gray-600">@item.Category</td>
+                        <td class="px-6 py-4 text-gray-500 text-sm italic">@item.Description</td>
+                        <td class="px-6 py-4 text-[#9a4c5f] font-medium">@item.PublishDate.ToShortDateString()</td>
+
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <form asp-action="Delete" asp-route-id="@item.ProjectId" method="post"
+                                      onsubmit="return confirm('@item.Title projesini silmek istediğinize emin misiniz?');"
+                                      class="m-0">
+                                    <button type="submit" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors flex items-center">
+                                        <span class="material-symbols-outlined text-sm">delete</span>
+                                        <span class="ml-1 text-sm font-semibold">Delete</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</section>
+<style>
+    .admin-section {
+        margin-left: 18rem !important; /* sidebar w-72 */
+        width: calc(100% - 18rem);
+        min-height: 100vh;
+        padding: 2rem;
+    }
+</style>

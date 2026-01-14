@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<!DOCTYPE html>
+<aside class="fixed left-0 top-0 h-screen w-72 bg-white dark:bg-[#2d181e] border-r border-[#fceef1] z-50 flex flex-col py-6">
+
+    <div class="flex flex-col gap-8 px-4">
+
+        <div class="flex items-center gap-3 px-2">
+            <div class="w-10 h-10 rounded-full bg-[#ff4d7d] flex items-center justify-center text-white shadow-lg shadow-pink-100">
+                <span class="material-symbols-outlined text-xl">diamond</span>
+            </div>
+            <div>
+                <h1 class="text-[17px] font-bold text-gray-800 leading-tight"><a href="/Default/Index">Gökçe Toprakal</a></h1>
+                <p class="text-[10px] text-[#b38894] font-semibold uppercase tracking-wider">Admin Sayfası</p>
+            </div>
+        </div>
+
+        <nav class="flex flex-col gap-2">
+
+            <a asp-controller="Admin" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "Admin" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a asp-controller="Project" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "Project" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">rocket_launch</span>
+                <span>My Projects</span>
+            </a>
+
+            <a asp-controller="Skill" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "Skill" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">monitoring</span>
+                <span>Skills</span>
+            </a>
+
+            <a asp-controller="Experience" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "Experience" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">work</span>
+                <span>Experiences</span>
+            </a>
+
+            <a asp-controller="Message" asp-action="Index"
+               class="flex items-center justify-between px-4 py-3 rounded-xl transition-all
+   @(currentController == "Message" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <div class="flex items-center gap-4">
+                    <span class="material-symbols-outlined">message</span>
+                    <span>Message</span>
+                </div>
+                @await Component.InvokeAsync("_SidebarMessageCountViewComponentPartial")
+
+                @* Okunmamış mesaj varsa daireyi göster *@
+                @if (ViewBag.UnreadCount > 0)
+                {
+                    <div class="flex items-center justify-center min-w-[20px] h-5 px-1.5 bg-pink-600 text-white text-[10px] font-bold rounded-full shadow-sm shadow-pink-200 animate-pulse">
+                        @ViewBag.UnreadCount
+                    </div>
+                }
+            </a>
+
+            <a asp-controller="Education" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "Education" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">work</span>
+                <span>Education</span>
+            </a>
+
+            <a asp-controller="Reference" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "Reference" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">people</span>
+                <span>References</span>
+            </a>
+
+            <a asp-controller="About" asp-action="Index"
+               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all
+   @(currentController == "About" ? "bg-pink-100 text-pink-600 font-bold" : "text-gray-600 hover:bg-gray-50")">
+
+                <span class="material-symbols-outlined">settings</span>
+                <span>About Me</span>
+            </a>
+
+        </nav>
+    </div>
+
+</aside>

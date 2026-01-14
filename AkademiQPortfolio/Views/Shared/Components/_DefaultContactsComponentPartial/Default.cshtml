@@ -1,0 +1,198 @@
+﻿<section id="section8">
+	<div class="container">
+		<h2>Bana Ulaşın</h2>
+		<div class="row">
+			<div class="col-sm-5">
+				<h5>İletişim Adreslerim</h5>
+				<ul class="list-icons list-unstyled">
+					<li><i class="ion-ios-location-outline"></i>Uludağ Üniversitesi, İnegöl İşletme Fakültesi<br />İnegöl/BURSA</li>
+					<li><i class="ion-iphone"></i>Phone: 0545 373 94 94</li>
+					<li><i class="ion-ios-email-outline"></i>Email: <a href="#">gkctprkl05@gmail.com</a></li>
+					<li><i class="ion-ios-home-outline"></i>Website: <a href="#">info@gkctprkl.com</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-7">
+				<h5>İletişim Formu</h5>
+				<form action="/Contact/SendMessage" method="post" class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">İsim:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="SenderName" required />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Email:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" name="SenderEmail" required />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Konu:</label>
+						<div class="col-sm-10">
+							<select name="MessageSubject" class="form-control" required>
+								<option value="" disabled selected>Konu seçiniz</option>
+								<option value="Proje Teklifi">Proje Teklifi</option>
+								<option value="Geliştirme Talebi">Geliştirme Talebi</option>
+								<option value="Eğitim Talebi">Eğitim Talebi</option>
+								<option value="Danışmanlık">Danışmanlık</option>
+								<option value="Diğer">Diğer</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Mesaj:</label>
+						<div class="col-sm-10">
+							<textarea name="MessageText" class="form-control" rows="3" required></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-10 col-sm-offset-2">
+							<button type="submit" class="button solid-button purple">Mesaj Gönder</button>
+						</div>
+					</div>
+				</form> <!-- end contact-form -->
+			</div>
+		</div>
+	</div> <!-- end .container -->
+</section>
+<style>
+	/* --- SECTION 8 (BANA ULAŞIN) ÖZEL STİLLERİ --- */
+
+	#section8 {
+		background-color: #ffffff;
+	}
+
+		#section8 h2 {
+			font-weight: 800;
+			text-transform: uppercase;
+			margin-bottom: 50px;
+			color: #333;
+		}
+
+		#section8 h5 {
+			font-weight: 700;
+			margin-bottom: 30px;
+			color: #333;
+			text-transform: uppercase;
+			font-size: 16px;
+			letter-spacing: 1px;
+		}
+
+	/* İletişim Bilgileri Listesi */
+	.list-icons li {
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 20px;
+		line-height: 1.6;
+		color: #555;
+	}
+
+	.list-icons i {
+		position: absolute;
+		left: 0;
+		top: 5px;
+		font-size: 20px;
+		color: #d88ea1 !important; /* Pembe vurgu rengi */
+	}
+
+	.list-icons a {
+		color: #666;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+
+		.list-icons a:hover {
+			color: #d88ea1;
+		}
+
+	/* Sosyal Medya İkonları */
+	.social-icons {
+		margin-top: 25px;
+	}
+
+	.social-icon {
+		display: inline-block;
+		width: 42px;
+		height: 42px;
+		line-height: 42px;
+		text-align: center;
+		background-color: #f5f5f5;
+		color: #333 !important;
+		border-radius: 50%;
+		margin-right: 10px;
+		transition: all 0.3s ease;
+	}
+
+		.social-icon:hover {
+			background-color: #d88ea1;
+			color: #fff !important;
+			transform: translateY(-3px);
+		}
+
+	/* İletişim Formu Tasarımı */
+	.contact-form .form-group {
+		margin-bottom: 25px;
+	}
+
+	.contact-form label {
+		font-weight: 600;
+		color: #777;
+		font-size: 13px;
+		padding-top: 12px;
+	}
+
+	.contact-form input,
+	.contact-form textarea,
+	.contact-form select {
+		border: none !important;
+		border-bottom: 1px solid #e0e0e0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		padding: 10px 0 !important;
+		background: transparent !important;
+		width: 100%;
+		transition: border-color 0.3s;
+	}
+
+		.contact-form input:focus,
+		.contact-form textarea:focus,
+		.contact-form select:focus {
+			border-bottom: 2px solid #d88ea1 !important;
+			outline: none;
+		}
+
+	/* Gönder Butonu */
+	.button.solid-button.purple {
+		background-color: #333 !important;
+		color: #fff !important;
+		border: none;
+		padding: 12px 40px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		border-radius: 2px;
+		transition: background 0.3s;
+	}
+
+		.button.solid-button.purple:hover {
+			background-color: #d88ea1 !important;
+			cursor: pointer;
+		}
+
+	/* Alert/Uyarı Mesajları Tasarımı */
+	.form-alert {
+		margin-top: 20px;
+		border-radius: 2px;
+		border: none;
+	}
+
+	.alert-success {
+		background-color: #d88ea1;
+		color: white;
+	}
+
+</style>

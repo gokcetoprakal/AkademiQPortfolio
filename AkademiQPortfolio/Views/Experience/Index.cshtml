@@ -1,0 +1,61 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "My Experiences";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="ml-72 p-8 bg-[#fffcfc] min-h-screen">
+    <div class="max-w-4xl mx-auto">
+
+        <div class="flex justify-between items-start mb-12">
+            <div>
+                <h1 class="text-3xl font-extrabold text-gray-800 tracking-tight">My Experiences</h1>
+                <p class="text-pink-400 font-medium mt-1">Curate your professional journey and work history.</p>
+            </div>
+            <a asp-action="Create" class="flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-2xl font-bold hover:bg-pink-600 transition-all shadow-lg shadow-pink-200">
+                <span class="material-symbols-outlined text-sm">add_circle</span>
+                Add Experience
+            </a>
+        </div>
+
+        <div class="relative border-l-2 border-pink-100 ml-3 space-y-10">
+            @foreach (var item in Model)
+            {
+                <div class="relative pl-10">
+                    <div class="absolute -left-[9px] top-10 w-4 h-4 bg-pink-500 rounded-full border-4 border-white shadow-sm"></div>
+
+                    <div class="bg-white rounded-3xl p-8 border border-pink-50 shadow-sm hover:shadow-md transition-all group">
+                        <div class="flex justify-between items-start">
+                            <div class="flex gap-5">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-800">@item.Title</h3>
+                                    <p class="text-pink-500 font-semibold text-sm">@item.CompanyName</p>
+
+                                    <div class="flex items-center gap-2 mt-2 text-gray-400">
+                                        <span class="material-symbols-outlined text-sm">calendar_today</span>
+                                        <span class="text-xs font-bold uppercase tracking-wider">@item.WorkDate</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <a asp-action="Edit" asp-route-id="@item.ExperienceId" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 text-gray-400 hover:bg-blue-50 hover:text-blue-600 transition-all">
+                                    <span class="material-symbols-outlined text-lg">edit</span>
+                                </a>
+                                <form asp-action="Delete" asp-route-id="@item.ExperienceId" method="post" onsubmit="return confirm('Bu deneyimi silmek istediğinize emin misiniz?');">
+                                    <button type="submit" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 text-gray-400 hover:bg-red-50 hover:text-red-600 transition-all">
+                                        <span class="material-symbols-outlined text-lg">delete</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 text-gray-500 leading-relaxed text-sm">
+                            @item.Description
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

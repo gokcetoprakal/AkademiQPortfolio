@@ -1,0 +1,49 @@
+﻿@model About
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="max-w-full p-6">
+    @* Sidebar mesafesi *@
+    <div class="bg-white rounded-2xl border p-8 shadow-sm max-w-3xl" style="margin-left: 18rem;">
+
+        <div class="flex items-center gap-3 mb-8 border-b pb-4">
+            <span class="material-symbols-outlined text-indigo-600">person_edit</span>
+            <h2 class="text-xl font-bold text-gray-800">Update About Information</h2>
+        </div>
+
+        <form method="post" class="space-y-6">
+            @* ID'yi gizli gönderiyoruz ki EF hangi satırı güncelleyeceğini bilsin *@
+            <input type="hidden" asp-for="AboutId" />
+
+            <div class="grid grid-cols-1 gap-6">
+                @* Başlık Alanı *@
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">My Title / Profession</label>
+                    <input type="text" asp-for="Title" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-100 border-gray-200 transition-all" placeholder="Örn: Senior Full Stack Developer" required />
+                </div>
+
+                @* Fotoğraf URL *@
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Profile Image URL</label>
+                    <input type="text" asp-for="ImageUrl" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-100 border-gray-200 transition-all" placeholder="https://..." />
+                </div>
+
+                @* Hakkımda Yazısı *@
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Biography / Description</label>
+                    <textarea asp-for="Description" rows="6" class="w-full p-3 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-100 border-gray-200 transition-all resize-none" placeholder="Kendinizden bahsedin..."></textarea>
+                </div>
+            </div>
+
+            @* Butonlar *@
+            <div class="flex items-center gap-4 pt-4">
+                <button type="submit" class="bg-indigo-600 text-white px-10 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">save</span>
+                    Save Changes
+                </button>
+                <p class="text-xs text-gray-400 font-medium italic">Last updated: @DateTime.Now.ToShortDateString()</p>
+            </div>
+        </form>
+    </div>
+</div>

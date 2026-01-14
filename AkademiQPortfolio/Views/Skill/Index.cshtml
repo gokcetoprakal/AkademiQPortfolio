@@ -1,0 +1,88 @@
+﻿@model List<Skill> // Skill model ismine göre düzenle
+@{
+    ViewData["Title"] = "Skills Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="ml-72 p-8 bg-[#fffcfc]">
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-sm border border-pink-50 overflow-hidden">
+        
+        <div class="px-8 py-6 border-b border-pink-50 flex justify-between items-center bg-white">
+            <div>
+                <h2 class="text-xl font-bold text-gray-800">My Skills</h2>
+                <p class="text-xs text-pink-400 font-medium tracking-wide uppercase mt-1">Technical Proficiency List</p>
+            </div>
+            <a asp-action="Create" class="flex items-center gap-2 bg-pink-500 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-pink-600 transition-all shadow-sm shadow-pink-200">
+                <span class="material-symbols-outlined text-sm">add</span>
+                Add New Skill
+            </a>
+        </div>
+
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="text-[11px] font-bold text-pink-300 uppercase tracking-widest bg-pink-50/20">
+                    <th class="px-8 py-4">ID</th>
+                    <th class="px-8 py-4">Skill Title</th>
+                    <th class="px-8 py-4">Proficiency</th>
+                    <th class="px-8 py-4 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-pink-50">
+                @foreach (var item in Model)
+                {
+                    <tr class="group hover:bg-pink-50/30 transition-all">
+                        <td class="px-8 py-5">
+                            <span class="font-mono text-sm text-gray-400">#@item.SkillId</span>
+                        </td>
+
+                        <td class="px-8 py-5">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-pink-100/50 flex items-center justify-center text-pink-500 group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-xl">bolt</span>
+                                </div>
+                                <span class="font-bold text-gray-700">@item.SkillTitle</span>
+                            </div>
+                        </td>
+
+                        <td class="px-8 py-5">
+                            <div class="w-48">
+                                <div class="flex justify-between items-center mb-1.5">
+                                    <span class="text-[11px] font-black text-pink-600">@item.SkillValue%</span>
+                                    <span class="text-[10px] font-bold text-gray-300 uppercase">Level</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-pink-400 to-pink-600 rounded-full transition-all duration-700" 
+                                         style="width: @item.SkillValue%"></div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="px-8 py-5 text-right">
+                            <div class="flex justify-end items-center gap-2">
+                                <a asp-action="Edit" asp-route-id="@item.SkillId" 
+                                   class="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-blue-50 hover:text-blue-600 transition-all">
+                                    <span class="material-symbols-outlined text-lg">edit_note</span>
+                                </a>
+                                
+                                <form asp-action="Delete" asp-route-id="@item.SkillId" method="post" 
+                                      onsubmit="return confirm('@item.SkillTitle silinecek, emin misiniz?');" class="m-0">
+                                    <button type="submit" class="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-red-50 hover:text-red-600 transition-all">
+                                        <span class="material-symbols-outlined text-lg">delete_sweep</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (!Model.Any())
+        {
+            <div class="py-20 text-center">
+                <span class="material-symbols-outlined text-5xl text-gray-200">Inbox</span>
+                <p class="text-gray-400 mt-2">Henüz bir yetenek eklenmemiş.</p>
+            </div>
+        }
+    </div>
+</section>
